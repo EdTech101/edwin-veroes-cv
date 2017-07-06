@@ -1,60 +1,140 @@
+'use strict';
 module.exports = function(grunt) {
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-concat-css');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-mkdir');
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
+
+  // Automatically load required Grunt tasks
+  //  require('jit-grunt')(grunt);
+  require('jit-grunt')(grunt, {
+    useminPrepare: 'grunt-usemin'
+  });
+
+  // Define the configuration for all the tasks
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    clean: ['build/CSS/prod.css','build/JS/prod.js'],
+    pkg: grunt.file.readscriptsON('package.json'),
+
+    // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
-      files: {
-        src: ['JS/**/*.js']
-      },
-    },
-    mkdir: {
-      all: {
-        options: {
-          create: ['build/JS/', 'build/CSS/']
-        },
-      },
-    },
-    concat: {
       options: {
-        separator: ' ',
+        jshintrc: '.jshintrc',
+        reporter: require('jshint-stylish')
       },
-      dist: {
-        src: ['node_modules/mo-js/*/*.min.js','node_modules/mo-js/*/*.min.js', 'JS/mo-test.js'],
-        dest: 'build/JS/prod.js'
+
+      all: {
+        src: [
+          'Gruntfile.js',
+          'src/scripts/{,*/}*.js'
+        ]
       }
     },
-    concat_css: {
-      options: {},
-      all: {
-        src: ["CSS/*.css"],
-        dest: "build/CSS/prod.css"
+    copy: {
+      dist: {
+        cwd: 'app',
+        src: ['**', '!styles/**/*.css', '!scripts/**/*.js'],
+        dest: 'dist',
+        expand: true
       },
-    },
-    cssmin: {
-      target: {
+
+      fonts: {
         files: [{
+          //for bootstrap fonts
           expand: true,
-          cwd: 'build/CSS',
-          src: ['*.css', '!*.min.css'],
-          dest: 'build/CSS',
-          ext: '.min.css'
+          dot: true,
+          cwd: 'bower_components/bootstrap/dist',
+          src: ['fonts/*.*'],
+          dest: 'dist'
+        }, {
+          //for font-awesome
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/font-awesome',
+          src: ['fonts/*.*'],
+          dest: 'dist'
         }]
       }
     },
-    uglify: {
-      options: {},
+
+    clean: {
       build: {
-        src: 'build/JS/prod.js',
-        dest: 'build/JS/prod.min.js'
+        src: ['dist/']
       }
     },
+    useminPrepare: {
+      html: 'app/menu.html',
+
+      useminPrepare: {
+        html: 'app/menu.html',
+        options: {
+          dest: 'dist'
+        }
+      },
+
+      // Concat
+      concat: {
+        options: {
+          separator: ';'
+        },
+
+        // dist configuration is provided by useminPrepare
+        dist: {}
+      },
+
+      // Uglify
+      uglify: {
+        // dist configuration is provided by useminPrepare
+        dist: {}
+      },
+
+      cssmin: {
+        dist: {}
+      },
+
+      // Filerev
+      filerev: {
+        options: {
+          encoding: 'utf8',
+          algorithm: 'md5',
+          length: 20
+        },
+
+        release: {
+          // filerev:release hashes(md5) all assets (images, js and css )
+          // in dist directory
+          files: [{
+            src: [
+              'dist/scripts/*.js',
+              'dist/styles/*.css',
+            ]
+          }]
+        }
+      },
+
+      // Usemin
+      // Replaces all assets with their revved version in html and css files.
+      // options.assetDirs contains the directories for finding the assets
+      // according to their relative paths
+      usemin: {
+        html: ['dist/*.html'],
+        css: ['dist/styles/*.css'],
+        options: {
+          assetsDirs: ['dist', 'dist/styles']
+        }
+      },
+    }
   });
-  grunt.registerTask('default', ['mkdir', 'jshint', 'concat', 'concat_css', 'cssmin', 'uglify','clean']);
+
+  grunt.registerTask('build', [
+    'clean',
+    'jshint',
+    'useminPrepare',
+    'concat',
+    'cssmin',
+    'uglify',
+    'copy',
+    'filerev',
+    'usemin'
+  ]);
+
+  grunt.registerTask('default', ['build']);
+
 };

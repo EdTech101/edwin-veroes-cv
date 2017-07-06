@@ -1,0 +1,59 @@
+<html lang="es">
+<header>
+  <title>Edwin Veroes</title>
+  <meta charset="UTF-8">
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- endbuild -->
+</header>
+
+<body ng-app='app'>
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col col-md-4 col-xs-12 left-pane">
+        <div class="col col-md-12 col-xs-12 padding-left-fix">
+          <div class="name-container">
+            <h2 class="text-center">Edwin Veroes</h2>
+            <h6 class="text-center">Software Developer</h6>
+          </div>
+          <div class="img-container" ng-controller="imgCtrl as img">
+            <div class="text-center">
+              <img ng-src="{{img.imgUrl}}" class="rounded-circle img-fluid" alt="Responsive image">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-center panel-footer">
+              <a href="https://www.facebook.com/3DW1N.V3R035" target="_blank"><i class="fa fa-facebook-square"></i></a>
+              <a href="https://plus.google.com/+EdwinVeroes" target="_blank"><i class="fa fa-google-plus"></i></a>
+              <a href="https://github.com/EdTech101" target="_blank"><i class="fa fa-github"></i></a>
+              <a href="https://twitter.com/edwinx101" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6">
+        <p><a href="#!">Main</a></p>
+
+        <a ng-href="#!banana">Red</a>
+        <a ng-href="#!tomato">Green</a>
+        <div ng-view></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<!-- build:js scripts/main.js -->
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/angular-route/angular-route.js"></script>
+<script src="scripts/helpers/md5.js"></script>
+<script src="scripts/Angular/App.js"></script>
+<script src="scripts/Angular/Controllers/imageController.js"></script>
+<script src="scripts/Mo/mo-test.js"></script>
+
+<!-- endbuild -->
+
+</html>

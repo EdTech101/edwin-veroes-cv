@@ -1,3 +1,4 @@
+/*'use strict';
 (function() {
   var shape = new mojs.Shape({
     shape:        'circle',
@@ -5,7 +6,8 @@
 
     duration:      1000,
     delay:         1000,
-    easing:        'cubic.out',
+    easing:        'cubic.in',
     repeat:        999
   }).play();
 })();
+*/

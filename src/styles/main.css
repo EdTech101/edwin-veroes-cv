@@ -1,0 +1,113 @@
+body, html {
+  padding: 0;
+}
+
+body {
+  background: rgba(241, 226, 215, 0.2);
+}
+.left-pane {
+  height: 100%;
+  background-color: #B6D1DC;
+  padding: 0px !Important;
+  color: white !important;
+}
+
+.img-container {
+  padding-top: 150px;
+}
+
+.name-container {
+  padding-top: 20px;
+}
+
+.panel-footer {
+  margin-top: 40px;
+  font-size: 40px;
+  border-color: #C5C5C5;
+}
+
+.panel-footer i {
+  padding-left: 5px;
+  color: white !important;
+}
+
+@media (max-width: 400px) {
+  .left-pane {
+    height: 100%;
+  }
+  .img-container {
+    padding-top: 70px;
+  }
+}
+
+@media (min-width: 400px) {
+  .img-container {
+    padding-top: 30px;
+  }
+}
+
+@media (min-width: 767px) and (max-height 780px) {
+  .img-container {
+    padding-top: 150px;
+  }
+  .panel-footer {
+    margin-top: 150%;
+  }
+}
+
+@media (min-width: 767px) and (min-height 780px) {
+  .img-container {
+    padding-top: 150px;
+  }
+  .panel-footer {
+    margin-top: 150%;
+  }
+}
+
+@media (min-width: 765px) {
+  .img-container {
+    margin-top: 150px;
+  }
+  .panel-footer {
+    margin-top: 100%;
+  }
+}
+@media (min-width: 820px) {
+  .img-container {
+    margin-top: 30px;
+  }
+  .panel-footer {
+    margin-top: 70%;
+  }
+}
+@media (min-width: 765px) and (orientation: landscape) {
+  .img-container {
+    padding-top: 30px !important;
+  }
+  .panel-footer {
+    margin-top: 50%;
+  }
+}
+@media (min-width: 1000px) and (orientation: landscape) {
+  .img-container {
+    padding-top: 30px !important;
+  }
+  .panel-footer {
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 767px)and (min-width: 400px) {
+  .img-container {
+    padding: 30px 20px 0px 20px;
+  }
+  .panel-footer {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 400px) {
+  .panel-footer {
+    margin-top: 10%;
+  }
+}

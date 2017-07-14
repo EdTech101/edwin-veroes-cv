@@ -30,7 +30,7 @@
 </header>
 
 <body ng-app='myApp'>
-  <div class="container-fluid">
+  <div class="container-fluid" ng-controller="AppCtrl as view">
     <div class="row">
       <div class="col col-md-3 col-xs-12 left-pane fixer-profile">
       </div>
@@ -39,8 +39,8 @@
           <div class="name-container">
             <h2 class="text-center">{{'data.common.name' | translate}}</h2>
             <div class="text-center">
-              <h5 class="sidebar-animation" dom-Replacer show="true" >{{'data.common.tittle' | translate}}</h5>
-              <h5 class="sidebar-animation" dom-Replacer show="false" ng-class="{'hidden' : false}">{{'data.common.tittleN' | translate}}</h5>
+              <h5 class="sidebar-animation" dom-Replacer show="{{view.show}}" >{{'data.common.tittle' | translate}}</h5>
+              <h5 class="sidebar-animation" dom-Replacer show="{{!view.show}}" ng-class="{'hidden' : !view.show}">{{'data.common.tittleN' | translate}}</h5>
             </div>
               </div>
           <div class="img-container" ng-controller="imgCtrl as img">
@@ -121,6 +121,7 @@
   <script src="src/scripts/Angular/Configurations/translateConfig.js"></script>
   <script src="src/scripts/Angular/Directives/dOMReplacerDirective.js"></script>
   <script src="src/scripts/Angular/Controllers/imageController.js"></script>
+    <script src="src/scripts/Angular/Controllers/AppController.js"></script>
   <script src="src/scripts/Angular/Controllers/timelineController.js"></script>
   <script src="src/scripts/Angular/Controllers/menuController.js"></script>
   <script src="src/scripts/Angular/Controllers/indexController.js"></script>

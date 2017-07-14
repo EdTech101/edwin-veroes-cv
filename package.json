@@ -5,10 +5,13 @@
   "main": "index.html",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
     "angular-route": "^1.6.4",
+    "angular-sanitize": "^1.6.5",
     "grunt": "^1.0.1"
   },
   "devDependencies": {
+    "angular-translate": "^2.15.2",
     "bootstrap": "^4.0.0-alpha.6",
     "font-awesome": "^4.7.0",
     "grunt": "^1.0.1",
@@ -27,6 +30,7 @@
     "jit-grunt": "^0.10.0",
     "jshint-stylish": "^2.2.1",
     "mojs": "^0.2.0",
+    "ng-cookies": "^1.0.2",
     "npm": "^5.1.0",
     "time-grunt": "^1.4.0"
   },

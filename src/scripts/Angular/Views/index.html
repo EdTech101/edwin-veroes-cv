@@ -1,0 +1,26 @@
+<section ng-controller="indexCtrl as actual">
+  <div class="row profile align-items-center">
+    <div class="col-12 wrapper-index">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h2 class="front-page">{{'data.common.name' | translate}}</h2>
+            <div class="wrapper-animation">
+              <span class="front-page" dom-Replacer show="{{actual.showTittle}}" >{{'data.common.tittle' | translate}}</span>
+              <span class="front-page" dom-Replacer show="{{!actual.showTittle}}" ng-class="{'hidden' : !actual.showTittle}">{{'data.common.tittleN' | translate}}</span>
+            </div>
+            <ul class="front-page-identifier">
+              <li><span class="identifier">{{'data.index.age' | translate}}:</span> {{actual.age}} </li>
+              <li><span class="identifier">{{'data.index.address' | translate}}:</span> {{actual.address}}</li>
+              <li><span class="identifier">{{'data.index.email' | translate}}:</span> {{actual.email}}</li>
+              <li><span class="identifier">{{'data.index.cellphone' | translate}}:</span> {{actual.cellphone}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,11 @@
-var app =angular.module('app',[]);
-app.controller('imgCtrl',function() {
-  var self = this;
-    self.imgUrl = 'https://www.gravatar.com/avatar/'+CryptoJS.MD5("veroesedwin@gmail.com")+'?size=600';
-});
+'use strict';
+(function() {
+app.controller('imgCtrl', imgCtrl);
+
+  imgCtrl.$inject = [];
+
+  function imgCtrl() {
+    var self = this;
+    self.imgUrl = 'https://www.gravatar.com/avatar/' + CryptoJS.MD5("veroesedwin@gmail.com") + '?size=600';
+  }
+})();

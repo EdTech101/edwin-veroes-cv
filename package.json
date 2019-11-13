@@ -1,55 +1,31 @@
 {
-  "name": "cv",
-  "version": "1.0.0",
-  "description": "My resume on a webpage",
-  "main": "index.html",
+  "name": "edwin-veroes-cv",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "angular": "^1.6.4",
-    "angular-animate": "^1.6.4",
-    "angular-route": "^1.6.4",
-    "angular-sanitize": "^1.6.5",
-    "grunt": "^1.0.1"
-  },
-  "devDependencies": {
-    "angular-translate": "^2.15.2",
-    "bootstrap": "^4.0.0-alpha.6",
-    "font-awesome": "^4.7.0",
-    "grunt": "^1.0.1",
-    "grunt-concat-css": "^0.3.2",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.2.0",
-    "grunt-contrib-imagemin": "^2.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^3.0.1",
-    "grunt-filerev": "^2.3.1",
-    "grunt-mkdir": "^1.0.0",
-    "grunt-usemin": "^3.1.1",
-    "install": "^0.10.1",
-    "jit-grunt": "^0.10.0",
-    "jshint-stylish": "^2.2.1",
-    "mojs": "^0.2.0",
-    "ng-cookies": "^1.0.2",
-    "npm": "^5.1.0",
-    "time-grunt": "^1.4.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EdTech101/CV.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "keywords": [
-    "CV",
-    "edwin",
-    "veroes"
-  ],
-  "author": "Edwin Veroes",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EdTech101/CV/issues"
-  },
-  "homepage": "https://github.com/EdTech101/CV#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
